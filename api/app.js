@@ -1,9 +1,11 @@
 const express = require("express");
 const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
+const cors = require("cors");
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 
 const SECRET = "SECr3t"; // This should be in an environment variable in a real application
 
