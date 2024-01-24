@@ -110,6 +110,10 @@ app.get("/admin/courses", authenticateJwt, async (req, res) => {
   res.json({ courses });
 });
 
+app.get("/admin/me", authenticateJwt, async (req, res) => {
+  res.json({ username: req.user.username });
+});
+
 // User routes
 app.post("/users/signup", async (req, res) => {
   const { username, password } = req.body;
