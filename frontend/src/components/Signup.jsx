@@ -1,10 +1,12 @@
 import { Button, Card, TextField, Typography } from "@mui/material";
 import { useState } from "react";
 import axios from "axios"
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
     const [username, setUserName] = useState()
     const [password, setPassword] = useState()
+    const navigate = useNavigate()
 
     const handleSignup = async () => {
         const response = await axios.post("http://localhost:3000/admin/signup", { username, password }, {
@@ -13,6 +15,7 @@ const Signup = () => {
             }
         })
         localStorage.setItem("token", response?.data?.token)
+        window.location = "/"
     }
     return (
         <div >
