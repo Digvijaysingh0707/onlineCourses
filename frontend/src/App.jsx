@@ -3,6 +3,7 @@ import Appbar from "./components/Appbar"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Signin from "./components/Signin"
 import AddCourse from "./components/AddCourse"
+import Courses from "./components/Courses"
 
 
 
@@ -14,6 +15,8 @@ function App() {
         <Appbar />
 
         <Routes>
+          <Route path="/courses" element={<Courses />} />
+
           <Route path="/addCourse" element={<AddCourse />} />
 
           <Route path="/login" element={<Signin />} />
