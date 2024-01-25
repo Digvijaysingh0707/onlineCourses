@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react"
+import CourseCard from "./CourseCard";
 
 const Courses = () => {
     const [courses, setCourses] = useState([])
@@ -23,11 +24,11 @@ const Courses = () => {
     useEffect(() => {
         fetchCourses()
     }, [])
-
-    console.log(courses)
     return (
-        <div>
-            {JSON.stringify(courses)}
+        <div style={{ display: 'flex', flexWrap: "wrap" }}>
+            {courses?.map(item => {
+                return <CourseCard key={item?._id} course={item} />
+            })}
         </div>
     )
 }
